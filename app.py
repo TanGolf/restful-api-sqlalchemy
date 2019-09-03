@@ -8,7 +8,7 @@ from resources.item import Item, ItemList
 from security import authenticate, identity
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key='lorax' #This should never be shared publicly and is for illustration purposes only.
 api = Api(app)
